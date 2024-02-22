@@ -32,10 +32,10 @@ config :surface, :components, [
 
 config :esbuild,
   version: "0.16.4",
-  default: [
+  my_super_app: [
     args: ~w(js/app.js --bundle --target=es2016 --outdir=../priv/static/assets),
     cd: Path.expand("../assets", __DIR__),
-    env: %{"NODE_PATH" => "/root/project/lib/moon_web/components/deps:./node_modules"}
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
 ]
 
 # Configure tailwind (the version is required)

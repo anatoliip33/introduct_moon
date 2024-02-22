@@ -72,15 +72,12 @@ defmodule MySuperApp.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind my_super_app", "esbuild my_super_app"],
+      setup: ["deps.get", "assets.setup", "assets.build"],
+      "assets.setup": ["cmd --cd assets npm i", "esbuild.install --if-missing"],
+      "assets.build": ["cmd --cd assets npm run build", "esbuild default"],
       "assets.deploy": [
-        "tailwind my_super_app --minify",
-        "esbuild my_super_app --minify",
+        "cmd --cd assets npm run deploy",
+        "NODE_ENV=production esbuild default --minify",
         "phx.digest"
       ]
     ]
