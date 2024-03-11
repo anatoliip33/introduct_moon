@@ -1,6 +1,5 @@
 defmodule MySuperAppWeb.HomeLive do
-  use Phoenix.LiveView
-  import Surface
+  use MySuperAppWeb, :surface_live_view
 
   alias Moon.Autolayouts.TopToDown
   alias Moon.Components.Heading

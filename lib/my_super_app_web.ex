@@ -120,4 +120,10 @@ defmodule MySuperAppWeb do
       unquote(html_helpers())
     end
   end
+
+  def view do
+    quote do
+      import Surface
+    end
+  end
 end

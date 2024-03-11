@@ -22,12 +22,11 @@ config :my_super_app, MySuperAppWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :my_super_app, MySuperApp.Mailer, adapter: Swoosh.Adapters.Local
 
 import_config "../deps/moon/config/surface.exs"
 
 config :surface, :components, [
-  # put here your app configs for surface
+  {Moon.Design.Tooltip.Content, propagate_context_to_slots: true}
 ]
 
 config :esbuild,
