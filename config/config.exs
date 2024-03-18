@@ -15,14 +15,6 @@ config :my_super_app, MySuperAppWeb.Endpoint,
   pubsub_server: MySuperApp.PubSub,
   live_view: [signing_salt: "gCbgwgWE"]
 
-# Configures the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
-
 import_config "../deps/moon/config/surface.exs"
 
 config :surface, :components, [
@@ -37,7 +29,6 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
 ]
 
-# Configure tailwind (the version is required)
 config :tailwind,
   version: "3.4.0",
   my_super_app: [
@@ -49,14 +40,10 @@ config :tailwind,
     cd: Path.expand("../assets", __DIR__)
   ]
 
-# Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

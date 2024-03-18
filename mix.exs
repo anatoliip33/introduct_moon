@@ -20,7 +20,8 @@ defmodule MySuperApp.MixProject do
   def application do
     [
       mod: {MySuperApp.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
+
     ]
   end
 
@@ -35,8 +36,8 @@ defmodule MySuperApp.MixProject do
     [
       {:phoenix, "~> 1.7.10"},
       {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.10"},
-      {:postgrex, ">= 0.0.0"},
+      {:ecto_sql, "~> 3.11"},
+      {:postgrex, "~> 0.17.5"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "0.19.5"},
@@ -72,7 +73,10 @@ defmodule MySuperApp.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "assets.setup", "assets.build"],
+      setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["cmd --cd assets npm i", "esbuild.install --if-missing"],
       "assets.build": ["cmd --cd assets npm run build", "esbuild default"],
       "assets.deploy": [

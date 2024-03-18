@@ -1,6 +1,8 @@
 defmodule MySuperAppWeb.MenuPage do
 	use MySuperAppWeb, :surface_live_view
 
+  alias MySuperApp.{Repo, LeftMenu}
+
 	alias Moon.Autolayouts.TopToDown
   alias Moon.Components.Heading
   alias Moon.Design.MenuItem
@@ -9,6 +11,11 @@ defmodule MySuperAppWeb.MenuPage do
   data(expanded0, :boolean, default: false)
   data(expanded1, :boolean, default: true)
   data(expanded2, :boolean, default: false)
+  data(left_menu, :any, default: [])
+
+  def mount(_params, _session, socket) do
+    {:ok, assign(socket, left_menu: LeftMenu |> Repo.all())}
+  end
 
   def render(assigns) do
     ~F"""
@@ -16,44 +23,49 @@ defmodule MySuperAppWeb.MenuPage do
       <TopToDown class="max-w-sm p-4 m-auto gap-4">
         <Heading size={24} class="text-center" is_regular>Menu!</Heading>
         <div class="flex w-full">
-          <div class="w-56 bg-goku flex flex-col gap-2 rounded-moon-s-lg p-4">
-            <MenuItem>Vision</MenuItem>
-            <MenuItem>Getting started</MenuItem>
-            <MenuItem>How to contribute?</MenuItem>
-            <MenuItem>Colours</MenuItem>
-            <MenuItem>Tokens</MenuItem>
-            <MenuItem>Transform SVG</MenuItem>
-            <MenuItem>Manifest</MenuItem>
-            <MenuItem role="switch" is_selected={@expanded0} title="Tailwind" on_click="on_expand0" />
+          <div class="w-56 bg-goku flex flex-col gap-2 rounded-moon-s-lg">
+            {#for menu <- @left_menu}
+              {#if menu.title == "Tailwind"}
+                <MenuItem role="switch" is_selected={@expanded0} title={menu.title} on_click="on_expand0" />
+              {#else}
+                <MenuItem>{menu.title}</MenuItem>
+              {/if}
+            {/for}
             {#if @expanded0}
               <MenuItem>
                 <span class="w-6" />
                 <Lego.Title>
-                  Accordion</Lego.Title>
+                  Accordion
+                </Lego.Title>
               </MenuItem>
               <MenuItem>
                 <span class="w-6" />
                 <Lego.Title>
-                  Avatar</Lego.Title>
+                  Avatar
+                </Lego.Title>
               </MenuItem>
               <MenuItem>
                 <span class="w-6" />
                 <Lego.Title>
-                  Breadcrumb</Lego.Title>
+                  Breadcrumb
+                </Lego.Title>
               </MenuItem>
               <MenuItem>
                 <span class="w-6" />
                 <Lego.Title>
-                  Button</Lego.Title>
+                  Button
+                </Lego.Title>
               </MenuItem>
               <MenuItem>
                 <span class="w-6" />
                 <Lego.Title>
-                  Checkbox</Lego.Title>
+                  Checkbox
+                </Lego.Title>
               </MenuItem>
             {/if}
           </div>
-          <div class="w-56 bg-goku flex flex-col gap-2 rounded-moon-s-lg p-4">
+
+          <div class="w-56 bg-goku flex flex-col gap-2 rounded-moon-s-lg">
             <MenuItem>
               <span class="bg-gohan w-6 h-6 top-2 left-2 rounded-full flex justify-center items-center">
                 <p class="leading-4 font-semibold text-moon-10">B</p>
