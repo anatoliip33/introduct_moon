@@ -5,7 +5,6 @@ defmodule MySuperAppWeb.HomeLive do
   alias Moon.Components.Heading
   alias Moon.Design.Button
 
-  @spec render(map()) :: Phoenix.LiveView.Rendered.t()
   def render(assigns) do
     ~F"""
       <TopToDown class="max-w-sm p-4 m-auto gap-4">

@@ -13,5 +13,6 @@ defmodule MySuperApp.Phone do
     phone
     |> cast(attrs, [:phone_number])
     |> validate_required([:phone_number])
+    |> validate_length(:phone_number, min: 10, max: 12)
   end
 end
