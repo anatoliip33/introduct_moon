@@ -3,7 +3,7 @@ defmodule Codewars.Sandox do
     0
   end
 
-  def of([head | tail]) do
+  def of([_head | tail]) do
     1 + of(tail)
   end
 
