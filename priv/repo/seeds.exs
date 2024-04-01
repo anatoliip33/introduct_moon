@@ -1,41 +1,5 @@
 alias MySuperApp.{Repo, Phone, Room}
 
-
-MySuperApp.Repo.insert_all(
-  "left_menu",
-  [
-    %{id: 1, title: "Vision"},
-    %{id: 2, title: "Getting started"},
-    %{id: 3, title: "How to contribute?"},
-    %{id: 4, title: "Colours"},
-    %{id: 5, title: "Tokens"},
-    %{id: 6, title: "Transform SVG"},
-    %{id: 7, title: "Manifest"},
-    %{id: 8, title: "Tailwind"}
-  ]
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 rooms_with_phones = %{
   "301" => ["0991122301", "0993344301"],
   "302" => ["0990000302", "0991111302"],

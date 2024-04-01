@@ -1,7 +1,7 @@
 defmodule MySuperAppWeb.Tabs do
 	use MySuperAppWeb, :surface_live_view
 
-  alias MySuperApp.{Repo, Room, Phone}
+  alias MySuperApp.{DbQueries}
 
   alias Moon.Design.Tabs
   alias Moon.Design.Accordion
@@ -17,56 +17,13 @@ defmodule MySuperAppWeb.Tabs do
   data(phones_no_rooms, :any, default: [])
 
   def mount(_params, _session, socket) do
-    rooms =
-      Room
-      |> Repo.all()
-      |> Repo.preload(:phones)
-
-    rooms_with_phones =
-      rooms
-      |> Enum.filter(&
-        &1
-        |> Map.get(:phones)
-        |> Enum.any?()
-      )
-      |> Enum.map(&
-        &1
-        |> Map.take([:room_number, :phones])
-      )
-
-    rooms_without_phones =
-      rooms
-      |> Enum.reject(&
-        &1
-        |> Map.get(:phones)
-        |> Enum.any?()
-      )
-      |> Enum.map(&
-        &1
-        |> Map.take([:room_number])
-      )
-
-    phones_no_rooms =
-      Phone
-      |> Repo.all()
-      |> Repo.preload(:rooms)
-      |> Enum.reject(&
-        &1
-        |> Map.get(:rooms)
-        |> Enum.any?()
-      )
-      |> Enum.map(&
-        &1
-        |> Map.take([:phone_number])
-      )
-
     {
       :ok,
       assign(
         socket,
-        rooms_with_phones: rooms_with_phones,
-        rooms_without_phones: rooms_without_phones,
-        phones_no_rooms: phones_no_rooms,
+        rooms_with_phones: DbQueries.rooms_with_phones(),
+        rooms_without_phones: DbQueries.rooms_without_phones(),
+        phones_no_rooms: DbQueries.phones_without_rooms(),
         selected: []
       )
     }
