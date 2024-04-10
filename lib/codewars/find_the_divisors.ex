@@ -1,10 +1,12 @@
 defmodule Codewars.FindTheDivisors do
   def divisors(n) do
-    arr = 1..n
-    filteredArr = Enum.filter(arr, fn numb -> rem(n,numb) == 0 end)
-    if(Enum.count(filteredArr) > 2) do
-      filteredArr
-    else "#{n} is prime"
-    end
+    2..(n-1)
+    |> Enum.filter(&
+      n > 1 && rem(n, &1) == 0
+    )
+    |> show_dividers(n)
   end
+
+  defp show_dividers([], n), do: "#{n} is prime"
+  defp show_dividers(dividers, _), do: dividers
 end
