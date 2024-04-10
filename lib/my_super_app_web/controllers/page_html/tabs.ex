@@ -1,5 +1,5 @@
 defmodule MySuperAppWeb.Tabs do
-	use MySuperAppWeb, :surface_live_view
+  use MySuperAppWeb, :surface_live_view
 
   alias MySuperApp.{DbQueries}
 
@@ -72,7 +72,7 @@ defmodule MySuperAppWeb.Tabs do
     </Tabs>
     <div class="flex p-4 bg-gohan rounded-moon-s-sm text-moon-14 w-full">
       <Tabs id="tabs-with-pills" class="background-color:trunks">
-        <Tabs.List tab_titles={["First pill", "Second pill", "Third pill"]} tab_module={Tabs.Pill}/>
+        <Tabs.List tab_titles={["First pill", "Second pill", "Third pill"]} tab_module={Tabs.Pill} />
         <Tabs.Panels>
           <Tabs.Panel>{lorem()}</Tabs.Panel>
           <Tabs.Panel>{ipsum()}</Tabs.Panel>
@@ -81,7 +81,7 @@ defmodule MySuperAppWeb.Tabs do
       </Tabs>
     </div>
     <Tabs id="tabs-with-segments">
-      <Tabs.List tab_titles={["First pill", "Second pill", "Third pill"]} tab_module={Tabs.Segment}/>
+      <Tabs.List tab_titles={["First pill", "Second pill", "Third pill"]} tab_module={Tabs.Segment} />
       <Tabs.Panels>
         <Tabs.Panel>{lorem()}</Tabs.Panel>
         <Tabs.Panel>{ipsum()}</Tabs.Panel>
@@ -91,7 +91,7 @@ defmodule MySuperAppWeb.Tabs do
     <br>
     <Accordion id="simple-accordion">
       <Accordion.Item>
-        <Accordion.Header title="Lorem"/>
+        <Accordion.Header title="Lorem" />
         <Accordion.Content>{lorem()}</Accordion.Content>
       </Accordion.Item>
       <Accordion.Item>

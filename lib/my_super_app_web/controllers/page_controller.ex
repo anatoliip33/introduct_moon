@@ -6,7 +6,8 @@ defmodule MySuperAppWeb.PageController do
     |> render(
       :home,
       %{
-        layout: false, message: message
+        layout: false,
+        message: message
       }
     )
   end

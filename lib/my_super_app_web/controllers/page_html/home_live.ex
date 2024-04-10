@@ -7,10 +7,10 @@ defmodule MySuperAppWeb.HomeLive do
 
   def render(assigns) do
     ~F"""
-      <TopToDown class="max-w-sm p-4 m-auto gap-4">
-        <Heading size={24} class="text-center" is_regular>Hey!</Heading>
-        <Button size="xs">First Moon Button</Button>
-      </TopToDown>
+    <TopToDown class="max-w-sm p-4 m-auto gap-4">
+      <Heading size={24} class="text-center" is_regular>Hey!</Heading>
+      <Button size="xs">First Moon Button</Button>
+    </TopToDown>
     """
   end
 end

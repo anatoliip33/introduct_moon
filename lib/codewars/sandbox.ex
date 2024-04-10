@@ -9,7 +9,7 @@ defmodule Codewars.Sandox do
 
   def reduce() do
     [1, 2, 3]
-    |> Enum.reduce(fn (x, acc) ->
+    |> Enum.reduce(fn x, acc ->
       x + acc
     end)
   end

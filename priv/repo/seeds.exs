@@ -8,7 +8,7 @@ rooms_with_phones = %{
   "305" => ["0935555305", "09306666305", "0937777305"]
 }
 
-Repo.transaction fn ->
+Repo.transaction(fn ->
   rooms_with_phones
   |> Enum.each(fn {room, phones} ->
     %Room{}
@@ -16,9 +16,9 @@ Repo.transaction fn ->
     |> Ecto.Changeset.put_assoc(
       :phones,
       phones
-      |> Enum.map(&
-        %Phone{}
-        |> Phone.changeset(%{phone_number: &1})
+      |> Enum.map(
+        &(%Phone{}
+          |> Phone.changeset(%{phone_number: &1}))
       )
     )
     |> Repo.insert!()
@@ -56,4 +56,4 @@ Repo.transaction fn ->
   #     ]
   #   )
   #   |> Repo.update()
-end
+end)

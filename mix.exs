@@ -20,8 +20,7 @@ defmodule MySuperApp.MixProject do
   def application do
     [
       mod: {MySuperApp.Application, []},
-      extra_applications: [:logger, :runtime_tools],
-
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 

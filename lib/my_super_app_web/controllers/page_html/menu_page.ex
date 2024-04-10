@@ -1,9 +1,9 @@
 defmodule MySuperAppWeb.MenuPage do
-	use MySuperAppWeb, :surface_live_view
+  use MySuperAppWeb, :surface_live_view
 
   alias MySuperApp.{Repo, LeftMenu}
 
-	alias Moon.Autolayouts.TopToDown
+  alias Moon.Autolayouts.TopToDown
   alias Moon.Components.Heading
   alias Moon.Design.MenuItem
   alias Moon.Lego
@@ -195,7 +195,7 @@ defmodule MySuperAppWeb.MenuPage do
   end
 
   def handle_event("on_expand" <> number, params, socket) do
-    {:noreply, assign(socket, :"expanded#{number}",  params["is-selected"] |> convert!)}
+    {:noreply, assign(socket, :"expanded#{number}", params["is-selected"] |> convert!)}
   end
 
   defp convert!("true"), do: true

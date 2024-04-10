@@ -8,5 +8,5 @@ defmodule MySuperApp.Repo.Migrations.CreateRoomsPhones do
     end
 
     create unique_index(:rooms_phones, [:room_id, :phone_id])
-  end 
+  end
 end

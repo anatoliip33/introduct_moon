@@ -6,7 +6,6 @@ defmodule MySuperApp.LeftMenu do
     field :title, :string
   end
 
-  
   def changeset(left_menu, attrs) do
     left_menu
     |> cast(attrs, [:title])
@@ -15,4 +14,3 @@ defmodule MySuperApp.LeftMenu do
   end
 end
 
-# MySuperApp.Repo.insert(MySuperApp.LeftMenu.changeset(%MySuperApp.LeftMenu{}, %{id: 11, title: "f"}))
