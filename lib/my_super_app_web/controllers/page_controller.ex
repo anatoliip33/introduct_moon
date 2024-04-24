@@ -1,7 +1,9 @@
 defmodule MySuperAppWeb.PageController do
   use MySuperAppWeb, :controller
 
-  def home(conn, %{"message" => message}) do
+  def home(conn, %{"message" => message} = params) do
+    params |> IO.inspect()
+
     conn
     |> render(
       :home,

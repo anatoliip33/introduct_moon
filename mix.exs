@@ -59,8 +59,8 @@ defmodule MySuperApp.MixProject do
       {:jason, "~> 1.0"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
-      {:moon, git: "https://github.com/coingaming/moon.git"},
-      {:surface, "~> 0.11.0"}
+      {:moon, "~> 2.81"},
+      {:surface, "0.11.1"}
     ]
   end
 

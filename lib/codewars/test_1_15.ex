@@ -20,6 +20,9 @@ defmodule Codewars.Test1_15 do
       iex(2)> anagram?("dumble", "bumble") === false
       iex(3)> anagram?("Buckethead", "DeathCubeK") === true
   """
+  def anagram?(_a, _b) do
+
+  end
 
   @doc """
     task 2
@@ -38,6 +41,9 @@ defmodule Codewars.Test1_15 do
       iex(2)> divisors(25) # should return [5]
       iex(3)> divisors(13) # should return "13 is prime"
   """
+  def divisors(_n) do
+
+  end
 
   @doc """
     task 3
@@ -63,4 +69,7 @@ defmodule Codewars.Test1_15 do
       iex(5)> rgb(212,53,12) == "D4350C"
       iex(6)> rgb(173,255,47) == "ADFF2F"
   """
+  def rgb(_a, _b, _c) do
+
+  end
 end

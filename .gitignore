@@ -41,4 +41,14 @@ assets/js/_hooks/
 # Ignore generated CSS file for components
 assets/css/_components.css
 
+mix.lock
+package-lock.json
 
+*.ez
+*.beam
+*.secret.exs
+.elixir_ls
+.vscode
+
+favicon.ico
+README.md

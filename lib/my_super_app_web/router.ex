@@ -22,6 +22,9 @@ defmodule MySuperAppWeb.Router do
     live("/", HomeLive)
     live("/menu", MenuPage)
     live("/tabs", Tabs)
+    live("/form", Form)
+
+    live("/users", UsersPage)
 
     # resources "/users", UserController
     #   resources "/posts", PostController
